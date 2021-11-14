@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Bootstrap－１</title>
+</head>
+
+<body>
+
+
+    <div class="container my-3">
+        <h3>Bootstrap解說－１(這部分可直接用瀏覽器開啟)</h3>
+        <div class="border">
+            <h5>一般而言，文字內文，使用bootstrap CSS Class的組成會是</h5>
+            <p>＜ｄｉｖ　ｃｌａｓｓ＝＂<span class="text-danger">ｃｏｎｔａｉｎｅｒ</span>＂＞</p>
+            <div class="bg-light border">container是容器 內文會內縮(margin)</div>
+            <p>　　＜ｄｉｖ　ｃｌａｓｓ＝＂<span class="text-danger">ｒｏｗ</span>＂＞</p>
+            <div class="bg-light border">row是強制斷行</div>
+            <p>　　　＜ｄｉｖ　ｃｌａｓｓ＝＂<span class="text-danger">ｃｏｌ階層</span>＂＞</p>
+            <div class="bg-light border">col開頭的 是一般的格線排版</div>
+            <p>　　　　　　文字內容</p>
+            <p>　　　＜／ｄｉｖ＞</p>
+            <p>　　＜／ｄｉｖ＞</p>
+            <p>＜／ｄｉｖ＞</p>
+        </div>
+    </div>
+
+    <h3>以下是示範：(使用IDE+瀏覽器檢視此部分)</h3>
+
+    <h4>在container<span class="text-danger">外</span>的文字</h4>
+    <div class="container my-3 bg-secondary text-white">
+        <h4>在container內的文字</h4>
+        <div class="col-sm-3 border bg-info">完全不使用row的情況</div>
+        <div class="col-sm-3 border bg-info">直接在container底下，放兩個sm-3，根據分成12格線的原則 12-3*2 = 6</div>
+        <div class="col-sm-3 border bg-info">完全不使用row 因父容器寬度不定，所以是直接疊加</div>
+
+        <div class="row">
+            <div class="col-sm-3 border boder-white bg-dark">只使用一個row的情況</div>
+            <div class="col-sm-3 border boder-white bg-dark">在row底下，放５個sm-3，則會依照12格線原則 </div>
+            <div class="col-sm-3 border boder-white bg-dark">每滿12格線會斷行一次</div>
+            <div class="col-sm-3 border boder-white bg-dark">3*4 = 12 所以下一行斷行</div>
+            <div class="col-sm-3 border boder-white bg-dark">這行是第五個sm-3 所以換行了</div>
+        </div>
+
+        <div class="row bg-warning text-primary">
+            <div class="col-sm-3 bg-light border">在這個row放兩個sm-3，根據分成12格線的原則 12-3*2 = 6</div>
+            <div class="col-sm-3 bg-light border">所以右邊還有剩餘的6空間，新開一個row強制斷行</div>
+        </div>
+        <div class="row text-primary">
+            <div class="col-sm-3 bg-light border">可以直接換行，不填滿剩下空間</div>
+        </div>
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
