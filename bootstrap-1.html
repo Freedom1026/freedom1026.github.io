@@ -48,14 +48,56 @@
         </div>
 
         <div class="row bg-warning text-primary">
-            <div class="col-sm-3 bg-light border">在這個row放兩個sm-3，根據分成12格線的原則 12-3*2 = 6</div>
-            <div class="col-sm-3 bg-light border">所以右邊還有剩餘的6空間，新開一個row強制斷行</div>
+            <div class="col-sm-3 bg-light border m-1">在這個row放兩個sm-3，根據分成12格線的原則 12-3*2 = 6</div>
+            <div class="col-sm-3 bg-light border m-1">所以右邊還有剩餘的6空間，新開一個row強制斷行 右邊橘色是多出來的空間>>>></div>
         </div>
         <div class="row text-primary">
             <div class="col-sm-3 bg-light border">可以直接換行，不填滿剩下空間</div>
         </div>
     </div>
 
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="container bg-secondary">
+                    此為container > row > col > container <br>
+                    這個container > row > col架構是可以循環的
+                    <div class="row">
+                        <div class="col-12">
+                            此為container > row > col > container > row > col-12 <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 bg-warning">
+                一般的container > row > col
+            </div>
+        </div>
+    </div>
+
+    <h3>延伸：左一右二類似表格的排版</h3>
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-sm-6 border">左1:col-sm-6</div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-12 border">右1:col-sm-6 > row > col-12</div>
+                    <div class="col-12 border">右2:col-sm-6 > row > col-12</div>
+                </div>
+            </div>
+            <div class="col-sm-12 bg-info">左邊和右邊的col-sm-6是同層級，右邊使用row進行滿12強制斷行</div>
+            <div class="col-sm-12 bg-info">但是在RWD手機板的時候 左1 右1 右2 都是各佔一行</div>
+            <div class="col-sm-12 bg-info">
+                <a href="https://getbootstrap.com/docs/5.0/layout/breakpoints/">參考Bootstrap斷點</a>
+                sm-6代表的是在螢幕>=576px的時候，佔據父容器６個等分（全部１２等分）<br>
+                對Bootstrap(版本4跟5)來說,只要沒有宣告col占比,sm以上的(md, lg)一律視為在小螢幕時，<br>
+                佔滿１２等分。<br>
+                col是X-Small，在宣告class的時候，直接打ｃｏｌ－６之類的，中間不加任何大小綴詞
+            </div>
+        </div>
+    </div>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

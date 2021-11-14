@@ -6,35 +6,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Bootstrap－2</title>
 </head>
 
 <body>
     <h4>Bootstrap導覽列</h4>
-    <p>因為container > row > col 這種class結構<br>
-        導覽列一般具有的特殊性 讓導覽列不太適合直接套用上面的class<br>
-        使得Bootstrap的導覽列排版class並不容易使用<br>
-        但因為Bootstrap有自帶RWD的導覽列 所以還是有一定熱門度在
+    <p>現在的導覽列有很多類型<br>
+        但Bootstrap有自帶RWD的導覽列 所以還是有一定熱門度在
     </p>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h4>官方網站範例：</h4>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Logo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link active" aria-current="page" href="#">active選項</a>
+                    <a class="nav-link" href="#">選項</a>
                 </div>
             </div>
         </div>
     </nav>
+    <h4 class="mt-5">以下這段html 是上方內容 然後將要顯示tag的＜＞改為全型而已</h4>
+    <pre>
+        <code>
+            ＜nav class="navbar navbar-expand-lg navbar-light <span class="text-danger">bg-info</span>"＞
+            ＜div class="<span class="text-danger">container-fluid</span>"＞
+                ＜a class="<span class="text-danger">navbar-brand</span>" href="#"＞放Logo的地方＜/a＞
+                ＜button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hambuger"
+                    aria-controls="hambuger" aria-expanded="false" aria-label="Toggle navigation"＞
+                    ＜span class="navbar-toggler-icon"＞＜/span＞
+                ＜/button＞
+                ＜div class="collapse navbar-collapse" id="hambuger"＞
+                <span class="text-danger">＜div class="navbar-nav"＞</span>
+                        ＜a class="nav-link <span class="text-danger">active</span>" aria-current="page" href="#"＞active選項＜/a＞
+                        ＜a class="nav-link" href="#"＞選項＜/a＞
+                    ＜/div＞
+                ＜/div＞
+            ＜/div＞
+            ＜/nav＞
+        </code>
+    </pre>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                bg-info：bg是background的縮寫，後面是固定的綴詞，可參考官方文件
+            </div>
+            <div class="col-12">
+                container-fluid：這是container的一種，表示此容器內文不內縮，
+                fluid具有全部佔滿的特色
+            </div>
+            <div class="col-12">
+                navbar-brand：有時候會想放長Logo，但因為RWD是共用同一個Logo，
+                在手機板可能位置會跑掉
+            </div>
+            <div class="col-12">
+                navbar-nav：可以注意到navbar-nav的html tag是div，這是由於這個範例本身沒有dropdown，
+                如果有dropdown，需要使用官方另一個範例
+            </div>
+            <div class="col-12">
+                active：表示此選項為[當前頁面] 字體可能加粗
+            </div>
+
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
