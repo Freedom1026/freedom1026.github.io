@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS小把戲2</title>
+    <style>
+        .rel {
+            position: relative;
+            background-color: cadetblue;
+            height: 400px;
+            margin: 10px 0;
+            overflow: scroll;
+        }
+
+        .abs {
+            position: absolute;
+            /* background-color: chocolate; */
+            height: 20px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 200px;
+        }
+
+        div.normal {
+            height: 400px;
+            margin: 10px;
+            background-color: chocolate;
+        }
+
+        .ano-rel{
+            position: relative;
+            background-image: url('img/B6853DED-FA27-475E-8A8F-FA6B2B4F03E8.png');
+            background-size: 200px;
+            background-position: 40% center;
+            background-repeat: no-repeat;
+            height: 400px;
+            margin: 10px 0;
+            overflow: scroll;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="rel">
+        hello
+    </div>
+    <div class="rel">
+        <div>
+            Position: absolute會找最靠近此元素的<br>
+            Position: relative去黏著
+            所以這張貓咪圖片 雖然看起來在下面橘色的範圍<br>
+            但其實是黏在rel的正中心<br>
+            無論下面橘色範圍如何疊加<br>
+            貓咪都是跟著rel走<br>
+            (這邊rel限制高度，所以對貓咪圖來說，現在的位置就是rel的正中心)<br>
+            (試著取消rel的overflow scroll和normal的background-color)<br>
+            (會看到貓咪實際上就是在rel中心)<br>
+            <img class="abs" src="img/95D9E1C1-2A49-4D43-8E13-6D8619BB3843.png" alt="">
+        </div>
+        <div class="normal"></div>
+        <div class="normal"></div>
+    </div>
+
+    <div class="ano-rel">
+        <div style="height: 200px;">
+            
+            <img class="abs" src="img/95D9E1C1-2A49-4D43-8E13-6D8619BB3843.png" alt="">
+        </div>
+        <div class="normal">
+            透過設定rel的背景圖和abs的圖片(abs也可以設定背景圖) <br>
+            可以達到視覺上一前一後的效果
+        </div>
+        <div class="normal"></div>
+        <div class="normal"></div>
+        <div class="normal"></div>
+    </div>
+
+</body>
+
+</html>

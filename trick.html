@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/trick.css">
+    <title>CSS小把戲</title>
+    <style>
+        .frame {
+            border: 10px solid black;
+            outline: solid black 80px;
+            border-radius: 10px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 50vw;
+            height: 50vh;
+        }
+
+        .row {
+            min-height: 100px;
+            background-color: burlywood;
+            margin: 10px 25vw;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame">
+        這個是frame
+    </div>
+    <div class="content">
+        <div class="row">這個是row</div>
+        <div class="row">
+        </div>
+        <div class="row">這個是row
+            外面的frame除了postion設定成fixed <br>
+            由於沒有設定背景 所以背景顏色是透明<br>
+            frame有設定border，所以顯示了border顏色
+        </div>
+        <div class="row">
+            比較值得一提的是<br>
+            這種不規則的div要如何置中？<br>
+            可以看到CSS裡面 我將top/bottom/left/right全部設為0
+            (這四個屬性只有在fixed/ absolute的情況下起作用)
+            並且再設定了margin:auto 這樣就會置中
+            <pre>
+                <code>
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                </code>
+            </pre>
+        </div>
+        <div class="row">除了css畫border的作法，也可以將frame改為背景圖<br>
+            背景圖必須為透明的png，中間留透明，可以達到一樣的效果</div>
+        <div class="row">這邊使用border外，還使用了outline <br>可以試試看差異在哪</div>
+        <div class="row">這個是row</div>
+        <div class="row">這個是row</div>
+        <div class="row">這個是row</div>
+        <div class="row">這個是row</div>
+        <div class="row">這個是row</div>
+        <div class="row">這個是row</div>
+        <div class="row">這個是row</div>
+    </div>
+
+</body>
+
+</html>
