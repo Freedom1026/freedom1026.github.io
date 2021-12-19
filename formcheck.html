@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單驗證</title>
+    <style>
+        .codeBox {
+            /* width: 200px; */
+            /* word-break: break-all; */
+            white-space: pre-wrap;
+        }
+        #debug, #debug2{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="codeBox">
+        在form元素內層
+        如果含有input 或者 select
+        而button type 是submit時
+        在提交表單，觸發submi事件的同時
+        也會觸發reportvalidity
+    </div>
+
+    <form onsubmit="submitAppend(event)">
+        <fieldset>
+            <div id="debug"></div>
+            <div>以下的例子中，在input設定了requried <br>
+            請嘗試=>不填寫任何內容,提交=>填寫內容提交</div>
+            <div class="struct"></div>
+            <input value="" required placeholder="使用者輸入值">
+            <button type="submit" onclick="clickAppend()">提交</button>
+        </fieldset>
+    </form>
+
+    <div class="codeBox">
+        在上面的例子,可以發現
+        先觸發了reportvalidity,檢查值之後,確認之後才會觸發submit
+        如果想要自定義 可以以html tag為單位 綁定setCustomValidity('錯誤訊息內容')
+        但需要注意的是 若有綁定這個function
+        每次click 送出button時(非submit),必須"初始化"所有tag => HTML_Tag(指定的標籤).setCustomValidity('')
+        否則只要使用者輸入錯誤一次 該html tag狀態 會持續被瀏覽器認為是錯誤的值
+        這個function的初始值為空字串，所以setCustomValidity（空字串）　就算將該tag進行初始化
+
+        另外reportvalidity也可自行提早以呼叫方式觸發,
+        但reportvalidity只能用在form Tag上
+    </div>
+
+    <form onsubmit="submitAppend2(event)">
+        <fieldset>
+            <div id="debug2"></div>
+            <div>以下的例子中，在input"沒有"設定required
+                <br>需要注意的是 checkbox如果沒有設定value
+                <br>預設value會是'on'
+            </div>
+            <div class="struct2"></div>
+            <input type="checkbox" id="ckbox"><label for="ckbox">如果勾選，input必填</label>
+            <input value="" placeholder="如果勾選，input必填" id="ip2">
+            <button type="submit" onclick="clickAppend2()">提交</button>
+        </fieldset>
+    </form>
+
+    <script>
+        let areaShow = document.querySelector('.struct');
+        areaShow.innerText = '<input value="" required placeholder="使用者輸入值">'
+        let areaShow2 = document.querySelector('.struct2');
+        areaShow2.innerText = '<input value="" placeholder="使用者輸入值">'
+
+        function clickAppend(){
+            let areaShow = document.querySelector('#debug');
+            areaShow.innerText = '觸發reportvalidity，觸發required'
+        }
+
+        function submitAppend(evt) {
+            evt.preventDefault();
+            let areaShow = document.querySelector('#debug');
+            areaShow.innerText = '直到使用者正確輸入，才觸發submit，才能看到此紅字'
+        }
+
+        function clickAppend2(){
+            let areaShow = document.querySelector('#debug2');
+            //因為checkbox的value是固定的 所以判斷是否勾選
+            let ck = document.querySelector('#ckbox:checked')
+            let input = document.querySelector('#ip2')
+            input.setCustomValidity('');
+            if(ck && input.value == ''){
+                input.setCustomValidity('請填寫');
+            }
+            areaShow.innerText = '觸發reportvalidity，觸發客製化條件'
+        }
+
+        function submitAppend2(evt) {
+            evt.preventDefault();
+            let areaShow = document.querySelector('#debug2');
+            areaShow.innerText = '直到使用者正確輸入，才觸發submit，才能看到此紅字'
+        }
+    </script>
+</body>
+
+</html>
